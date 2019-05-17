@@ -34,5 +34,55 @@ public class ArticleAuthor {
 	
 	@OneToMany(mappedBy="author",cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	private List<Article> articles;
+	
+	public ArticleAuthor(String fName, String lName) {
+		this.fName = fName;
+		this.lName = lName;
+	}
+	
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getfName() {
+		return fName;
+	}
+
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+
+	public String getlName() {
+		return lName;
+	}
+
+	public void setlName(String lName) {
+		this.lName = lName;
+	}
+
+	public ArticleAuthorAddress getAddress() {
+		return address;
+	}
+
+	public void setAddress(ArticleAuthorAddress address) {
+		this.address = address;
+	}
+
+	public List<Article> getArticles() {
+		return articles;
+	}
+
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
+	}
+
+	@Override
+	public String toString() {
+		return "ArticleAuthor [fName=" + fName + ", lName=" + lName + "]";
+	}
+	
 }

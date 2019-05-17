@@ -50,4 +50,74 @@ public class Article {
 	private List<ArticleCategory> categories;
 	
 	
+	public Article(String title, String text) {
+		this.title = title;
+		this.text = text;
+	}
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public ArticleAuthor getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(ArticleAuthor author) {
+		this.author = author;
+	}
+
+	public List<ArticleComment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<ArticleComment> comments) {
+		this.comments = comments;
+	}
+
+	public List<ArticleCategory> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<ArticleCategory> categories) {
+		this.categories = categories;
+	}
+
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", title=" + title + ", text=" + text + ", active=" + active + ", author=" + author
+				+ ", comments=" + comments + ", categories=" + categories + "]";
+	}
+
+
+	
 }

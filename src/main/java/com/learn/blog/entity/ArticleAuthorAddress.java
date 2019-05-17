@@ -27,5 +27,61 @@ public class ArticleAuthorAddress {
 	
 	@Column(name="house")
 	private String house;
+	
+	public ArticleAuthorAddress(String country, String city, String town, String house) {
+		this.country = country;
+		this.city = city;
+		this.town = town;
+		this.house = house;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getTown() {
+		return town;
+	}
+
+	public void setTown(String town) {
+		this.town = town;
+	}
+
+	public String getHouse() {
+		return house;
+	}
+
+	public void setHouse(String house) {
+		this.house = house;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "ArticleAuthorAddress [id=" + id + ", country=" + country + ", city=" + city + ", town=" + town
+				+ ", house=" + house + "]";
+	}
+	
 
 }
