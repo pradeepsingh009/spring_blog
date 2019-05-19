@@ -13,8 +13,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 @Entity
 @Table(name="article_category")
+@JsonPropertyOrder({"name","id"})
 public class ArticleCategory {
 	
 	@Id
@@ -23,6 +28,7 @@ public class ArticleCategory {
 	private int id;
 	
 	@Column(name="name")
+	@JsonProperty("category_name")
 	private String name;
 	
 	@ManyToMany(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
@@ -31,8 +37,13 @@ public class ArticleCategory {
 			joinColumns= {@JoinColumn(name="category_id")},
 			inverseJoinColumns= {@JoinColumn(name="article_id")}
 			)
+	@JsonIgnore
 	private List<Article> articles;
 
+	public ArticleCategory() {
+		
+	}
+	
 	public ArticleCategory(String name) {
 		this.name = name;
 	}

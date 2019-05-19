@@ -1,5 +1,6 @@
 package com.learn.blog.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="article_author")
@@ -34,6 +37,10 @@ public class ArticleAuthor {
 	
 	@OneToMany(mappedBy="author",cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	private List<Article> articles;
+	
+	public ArticleAuthor() {
+		
+	}
 	
 	public ArticleAuthor(String fName, String lName) {
 		this.fName = fName;
@@ -72,6 +79,7 @@ public class ArticleAuthor {
 		this.address = address;
 	}
 
+	@JsonIgnore
 	public List<Article> getArticles() {
 		return articles;
 	}

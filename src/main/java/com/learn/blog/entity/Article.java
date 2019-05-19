@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="article")
 public class Article {
@@ -37,10 +39,12 @@ public class Article {
 	@JoinColumn(name="author_id")
 	private ArticleAuthor author;
 	
+	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="article_id")
 	private List<ArticleComment> comments;
 	
+	@JsonIgnore
 	@ManyToMany(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@JoinTable(
 			name="article_category_relation",
@@ -49,6 +53,10 @@ public class Article {
 			)
 	private List<ArticleCategory> categories;
 	
+	
+	public Article() {
+		
+	}
 	
 	public Article(String title, String text) {
 		this.title = title;
